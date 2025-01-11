@@ -1,4 +1,5 @@
 import InventoryDetailsTable from "@/components/InventoryDetailsTable"
+import InventoryStatCards from "@/components/InventoryStatCards"
 import { Button } from "@/components/ui/Button"
 import { InventoryContextProvider } from "@/context/inventory"
 import { Inventory } from "@/types/inventory"
@@ -72,7 +73,7 @@ const InventoryStatsPage = (): JSX.Element => {
 				)
 					: (
 						<InventoryContextProvider value={{ inventory, deleteInventoryDetails, updateInventoryDetails }}>
-							{/* Stat cards */}
+							<InventoryStatCards />
 							<InventoryDetailsTable />
 						</InventoryContextProvider>
 					)
