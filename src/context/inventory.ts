@@ -3,6 +3,7 @@ import { createContext, useContext } from 'react';
 
 interface InventoryContextType {
     inventory: Record<string, Inventory>
+    deleteInventoryDetails: (inventoryName: string) => void
     updateInventoryDetails: (inventoryName: string, inventoryDetails: Inventory) => void
 }
 

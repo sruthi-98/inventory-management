@@ -1,3 +1,4 @@
+import InventoryDetailsTable from "@/components/InventoryDetailsTable"
 import { Button } from "@/components/ui/Button"
 import { InventoryContextProvider } from "@/context/inventory"
 import { Inventory } from "@/types/inventory"
@@ -11,6 +12,12 @@ const InventoryStatsPage = (): JSX.Element => {
 	const updateInventoryDetails = (inventoryName: string, inventoryDetails: Inventory): void => {
 		const updatedInventory = { ...inventory }
 		updatedInventory[inventoryName] = inventoryDetails
+		setInventory(updatedInventory)
+	}
+
+	const deleteInventoryDetails = (inventoryName: string): void => {
+		const updatedInventory = { ...inventory }
+		delete updatedInventory[inventoryName]
 		setInventory(updatedInventory)
 	}
 
@@ -28,6 +35,7 @@ const InventoryStatsPage = (): JSX.Element => {
 					// Extracting only the number value
 					price: inventoryItem.price.replace(/[^0-9.]+/g, ''),
 					value: inventoryItem.value.replace(/[^0-9.]+/g, ''),
+					isDisabled: false
 				}
 			})
 			setInventory(inventoryObj)
@@ -63,9 +71,9 @@ const InventoryStatsPage = (): JSX.Element => {
 					</div>
 				)
 					: (
-						<InventoryContextProvider value={{ inventory, updateInventoryDetails }}>
+						<InventoryContextProvider value={{ inventory, deleteInventoryDetails, updateInventoryDetails }}>
 							{/* Stat cards */}
-							{/* Inventory details table */}
+							<InventoryDetailsTable />
 						</InventoryContextProvider>
 					)
 			}

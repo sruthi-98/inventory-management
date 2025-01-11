@@ -4,4 +4,5 @@ export interface Inventory {
     value: string
     quantity: number
     price: string
+    isDisabled: boolean
 }
