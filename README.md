@@ -11,3 +11,5 @@ A ReactJS application to manage inventory and see stats.
 3. To install all the dependencies, run ```npm install```.
 
 4. Once everything is installed, execute ```npm run dev``` to start the application.
+
+**Live Demo**: https://inventory-management-cfv5clwv0-sruthi-sureshs-projects.vercel.app/
